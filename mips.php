@@ -9,7 +9,7 @@ class Mips extends Module {
     public function __construct() {
         $this->name = 'mips';
         $this->tab = 'Test';
-        $this->version = 1.0;
+        $this->version = 1.1;
         $this->author = 'Dusan Krajcovic';
         $this->need_instance = 0;
 
@@ -20,7 +20,7 @@ class Mips extends Module {
     }
 
     public function install() {
-        if (parent::install() == false)
+        if (parent::install() == false OR !$this->registerHook('leftColumn'))
             return false;
         return true;
     }
@@ -29,6 +29,15 @@ class Mips extends Module {
         if (!parent::uninstall())
             Db::getInstance()->Execute('DELETE FROM `' . _DB_PREFIX_ . 'mips`');
         parent::uninstall();
+    }
+
+    public function hookLeftColumn($params) {
+        global $smarty;
+        return $this->display(__FILE__, 'mips.tpl');
+    }
+
+    public function hookRightColumn($params) {
+        return $this->hookLeftColumn($params);
     }
 
 }
