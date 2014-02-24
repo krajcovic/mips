@@ -3,7 +3,7 @@
 if (!defined('_PS_VERSION_'))
     exit;
 
-class Mips extends Module {
+class Mips extends PaymentModule {
 
     const MIPS_NAME = 'MIPS_NAME';
 
@@ -16,6 +16,7 @@ class Mips extends Module {
 
         parent::__construct();
 
+        $this->page = basename(__FILE__, '.php');
         $this->displayName = $this->l('MIPS (Addons)');
         $this->description = $this->l('Module for pay on MIPS.');
 
@@ -32,7 +33,7 @@ class Mips extends Module {
             Shop::setContext(Shop::CONTEXT_ALL);
         }
 
-        if (parent::install() == false OR !$this->registerHook('leftColumn') OR !$this->registerHook('invoice') OR !$this->registerHook('payment') OR !$this->registerHook('paymentReturn') OR !Configuration::updateValue(MIPS_NAME, 'MIPS module addons')) {
+        if (parent::install() == false OR !$this->registerHook('invoice') OR !$this->registerHook('payment') OR !$this->registerHook('paymentReturn') OR !Configuration::updateValue(MIPS_NAME, 'MIPS module addons')) {
             return false;
         }
 
@@ -47,18 +48,22 @@ class Mips extends Module {
     }
 
     public function hookInvoice($params) {
-        global $smarty;
-        return $this->display(__FILE__, 'mips.tpl');
+//        global $smarty;
+//        return $this->display(__FILE__, 'payment.tpl');
+        return $this->hookPayment($params);
     }
 
     public function hookPayment($params) {
         global $smarty;
-        return $this->display(__FILE__, 'mips.tpl');
+        $smarty->assign(array(
+            'this_path' => $this->_path,
+            'this_path_ssl' => Configuration::get('PS_FO_PROTOCOL') . $_SERVER['HTTP_HOST'] . __PS_BASE_URI__ . "modules/{$this->name}/"));
+
+        return $this->display(__FILE__, 'payment.tpl');
     }
 
     public function hookPaymentReturn($params) {
-        global $smarty;
-        return $this->display(__FILE__, 'mips.tpl');
+        return $this->hookPayment($params);
     }
 
     public function hookLeftColumn($params) {
