@@ -78,6 +78,21 @@ class Mips extends PaymentModule {
 //    public function hookHeader($params) {
 //        return $this->display(__F)
 //    }
+
+    public function execPayment($cart) {
+        if (!$this->active)
+            return;
+
+        global $cookie, $smarty;
+
+        $smarty->assign(array(
+            'this_path' => $this->_path,
+            'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ? 'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'
+        ));
+
+        return $this->display(__FILE__, 'mipspayment.tpl');
+    }
+
 }
 
 ?>
