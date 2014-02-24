@@ -11,8 +11,8 @@ if (!$cookie->isLogged()){
  
 //$smarty->display(dirname(__FILE__).'/mips_page.tpl');
 
-$mipspayment = new mipspayment();
-echo $mipspayment->execPayment($cart);
+$mips = new Mips();
+echo $mips->execPayment($cart);
  
 include_once('../../footer.php');
 ?>
