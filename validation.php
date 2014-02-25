@@ -2,23 +2,24 @@
 
 include(dirname(__FILE__).'/../../config/config.inc.php');
 include(dirname(__FILE__).'/../../header.php');
-include(dirname(__FILE__).'/offlinecardpayment.php');
-			
+include(dirname(__FILE__).'/mips.php');
+
+$soapClient = new SoapClient("http://www.restfulwebservices.net/wcf/StockQuoteService.svc?wsdl"); 
 
 /* Gather submitted payment card details */
-$cardType     = $_POST['cardType'];
-$cardholderName     = $_POST['cardholderName'];
-$cardNumber         = $_POST['cardNumber'];
-$cardCVC            = $_POST['cardCVC'];
-$cardexpDate_mo     = $_POST['expDate_Month'];
-$cardexpDate_yr     = $_POST['expDate_Year'];
-$cardExp             = $cardexpDate_mo.$cardexpDate_yr;
+//$cardType     = $_POST['cardType'];
+//$cardholderName     = $_POST['cardholderName'];
+//$cardNumber         = $_POST['cardNumber'];
+//$cardCVC            = $_POST['cardCVC'];
+//$cardexpDate_mo     = $_POST['expDate_Month'];
+//$cardexpDate_yr     = $_POST['expDate_Year'];
+//$cardExp             = $cardexpDate_mo.$cardexpDate_yr;
+//
+//$cardstartDate_mo     = $_POST['startDate_Month'];
+//$cardstartDate_yr     = $_POST['startDate_Year'];
+//$cardStart            = $cardstartDate_mo.$cardstartDate_yr;
 
-$cardstartDate_mo     = $_POST['startDate_Month'];
-$cardstartDate_yr     = $_POST['startDate_Year'];
-$cardStart            = $cardstartDate_mo.$cardstartDate_yr;
-
-$cardIssue         = $_POST['cardIssue'];
+//$cardIssue         = $_POST['cardIssue'];
 
 //$currency = new Currency(intval(isset($_POST['currency_payement']) ? $_POST['currency_payement'] : $cookie->id_currency));
 //$total = floatval(number_format($cart->getOrderTotal(true, 3), 2, '.', ''));

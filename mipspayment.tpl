@@ -2,7 +2,7 @@
 <script language="javascript" src="{$this_path}mips.js"></script>
 <link href="{$this_path}css/mips.css" rel="stylesheet" type="text/css" media="all" />
 
-<form action="{$this_path_ssl}validation_deposit.php" class="mipspaymentForm" id="mipspaymentForm" name="mipspaymentForm" method="post">
+<form action="{$this_path_ssl}validation.php" class="mipspaymentForm" id="mipspaymentForm" name="mipspaymentForm" method="post">
     <fieldset>
         <legend>{l s='MIPS payment Details' mod='mips'}</legend>
         <p>Please complete the form below. Mandatory fields marked <em>*</em></p>
@@ -16,6 +16,11 @@
                 <input type="text" value="{$merchantNumber}" name="merchantNumber" id="merchantNumber" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The merchant number. Only for testing purposes.');" onmouseout="tooltip.hide();">What is this?</span>
                 <div id="errmerchantNumber" style="color:red;{if $errmerchantNumber eq '1'}display: block;{else}display: none;{/if}">{l s="Merchant number is Required" mod="mips"}</div>
             </li>
+                        <li>
+                <label for="orderNumber">{l s='Čislo Objednávky:' mod='mips'}<em>*</em></label>
+                <input type="text" value="{$orderNumber}" name="orderNumber" id="orderNumber" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The order number. Only for testing purposes.');" onmouseout="tooltip.hide();">What is this?</span>
+                <div id="errorderNumber" style="color:red;{if $errorderNumber eq '1'}display: block;{else}display: none;{/if}">{l s="Order number is Required" mod="mips"}</div>
+            </li>
         </ol>
     </fieldset>
     <p class="cart_navigation">
@@ -25,7 +30,7 @@
 </form>
 
 
-<form style="display:yes;" action="{$this_path_ssl}validation.php" class="mipspaymentForm" id="mipspaymentForm" name="mipspaymentForm" method="post">
+<form style="display:none;" action="{$this_path_ssl}validation.php" class="mipspaymentForm" id="mipspaymentForm" name="mipspaymentForm" method="post">
     <fieldset>
         <legend>{l s='Payment Card Details' mod='mips'}</legend>
         <p>Please complete the form below. Mandatory fields marked <em>*</em></p>
