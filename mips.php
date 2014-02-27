@@ -1,13 +1,23 @@
 <?php
 
-if (!defined('_PS_VERSION_'))
+if (!defined('_PS_VERSION_')) {
+    require 'vendor/autoload.php';
+    //use DebugBar\StandardDebugBar;
+
     exit;
+}
 
 class Mips extends PaymentModule {
 
     const MIPS_NAME = 'MIPS_NAME';
 
     public function __construct() {
+
+        //$debugbar = new DebugBar\StandardDebugBar();
+        //$debugbarRenderer = $debugbar->getJavascriptRenderer();
+        //$debugbar["messages"]->addMessage("MIPS payment module __construct");
+        //echo $debugbarRenderer->render();
+
         $this->name = 'mips';
         $this->tab = 'payments_gateways';
         $this->version = 0.1;
