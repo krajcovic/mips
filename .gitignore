@@ -1,3 +1,6 @@
+/composer.lock
 /nbproject/private/private.properties
 /nbproject/private/config.properties
 /nbproject/private/private.xml
+
+vendor/
