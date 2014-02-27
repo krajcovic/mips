@@ -69,7 +69,7 @@ class Mips extends PaymentModule {
         $smarty->assign(array(
             'this_path' => $this->_path,
             'this_path_ssl' => Configuration::get('PS_FO_PROTOCOL') . $_SERVER['HTTP_HOST'] . __PS_BASE_URI__ . "modules/{$this->name}/",
-            'this_mips_url' => 'www.monetplus.cz/mips/deposit'));
+            'this_mips_url' => 'www.monetplus.cz/mips/order'));
 
         return $this->display(__FILE__, 'payment.tpl');
     }
@@ -160,7 +160,8 @@ class Mips extends PaymentModule {
             $validcard = $validcard . '<option value="Diners">Diners</option>';
         }
 
-        $requestType = '<option value="Approve Reversal">Approve Reversal</option>';
+        $requestType = '<option value="Order">Order</option>';
+        $requestType = $requestType . '<option value="Approve Reversal">Approve Reversal</option>';
         $requestType = $requestType . '<option value="Deposit">Deposit</option>';
         $requestType = $requestType . '<option value="Deposit Reversal">Deposit Reversal</option>';
         $requestType = $requestType . '<option value="Credit">Credit</option>';

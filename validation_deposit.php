@@ -8,7 +8,8 @@ include(dirname(__FILE__).'/mips.php');
 /* Gather submitted payment card details */
 $merchantNumber = Configuration::get('MIPS_MERCHANT_NUMBER');
 $orderNumber = $_POST['order_number'];
-$total = $cart->get
+//$total = $cart->get
+        
 
 //$cardType     = $_POST['cardType'];
 //$cardholderName     = $_POST['cardholderName'];

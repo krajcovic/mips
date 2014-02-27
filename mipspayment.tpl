@@ -26,6 +26,39 @@
                 <input type="text" value="{$orderNumber}" name="orderNumber" id="orderNumber" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The order number. Only for testing purposes.');" onmouseout="tooltip.hide();">What is this?</span>
                 <div id="errorderNumber" style="color:red;{if $errorderNumber eq '1'}display: block;{else}display: none;{/if}">{l s="Order number is Required" mod="mips"}</div>
             </li>
+            <li>
+                <label for="amount">{l s='Částka:' mod='mips'}<em>*</em></label>
+                <input type="number" value="{$amount}" name="amount" id="amount" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The amount price. 1Kc = 100');" onmouseout="tooltip.hide();">What is this?</span>
+                <div id="erramount" style="color:red;{if $erramount eq '1'}display: block;{else}display: none;{/if}">{l s="Amount is Required" mod="mips"}</div>
+            </li>
+            <li>
+                <label for="currIso">{l s='Měna ISO 4217:' mod='mips'}<em>*</em></label>
+                <input type="number" value="{$currIso}" name="currIso" id="currIso" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The currency ISO number');" onmouseout="tooltip.hide();">What is this?</span>
+                <div id="errcurrency" style="color:red;{if $errcurrency eq '1'}display: block;{else}display: none;{/if}">{l s="Currency is Required" mod="mips"}</div>
+            </li>
+            <li>
+                <label for="depositFlag">{l s='Deposit flag:' mod='mips'}<em>*</em></label>
+                <input type="checkbox" value="{$depositFlag}" name="depositFlag" id="depositFlag" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The deposti flag. automatick');" onmouseout="tooltip.hide();">What is this?</span>
+                <div id="errdepositFlag" style="color:red;{if $errdepositFlag eq '1'}display: block;{else}display: none;{/if}">{l s="Deposit flag is Required" mod="mips"}</div>
+            </li>
+            <li>
+                <label for="merorderNum">{l s='Indikace objednavky:' mod='mips'}<em>*</em></label>
+                <input type="number" value="{$merorderNum}" name="merorderNum" id="merorderNum" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The merchant order number');" onmouseout="tooltip.hide();">What is this?</span>
+            </li>
+            <li>
+                <input type="hidden" value="{$base_dir_ssl}mipsresponse.php" name="backUrl" id="backUrl" /> 
+            </li>
+            <li>
+                <label for="description">{l s='Popis:' mod='mips'}<em>*</em></label>
+                <input type="text" value="{$description}" name="description" id="description" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The description.');" onmouseout="tooltip.hide();">What is this?</span>
+            </li>
+            <li>
+                <label for="md">{l s='Popis:' mod='mips'}<em>*</em></label>
+                <input type="text" value="{$md}" name="md" id="md" />  <span style="font-size:0.8em;" class="hotspot" onmouseover="tooltip.show('The description.');" onmouseout="tooltip.hide();">What is this?</span>
+            </li>
+            <li>
+                <input type="hidden" value="{$this_mips_url}" name="mipsUrl" id="mipsUrl" /> 
+            </li>
         </ol>
     </fieldset>
     <p class="cart_navigation">

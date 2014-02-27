@@ -4,7 +4,24 @@ include(dirname(__FILE__).'/../../config/config.inc.php');
 include(dirname(__FILE__).'/../../header.php');
 include(dirname(__FILE__).'/mips.php');
 
-$soapClient = new SoapClient("http://www.restfulwebservices.net/wcf/StockQuoteService.svc?wsdl"); 
+//$soapClient = new SoapClient("http://www.restfulwebservices.net/wcf/StockQuoteService.svc?wsdl"); 
+
+$requestType = $_POST['requestType'];
+$operation = $_POST['operation'];
+$merchantNumber = $_POST['merchantNumber'];
+$orderNumber = $_POST['orderNumber'];
+$amount = $_POST['amount'];
+$currIso = $_POST['currIso'];
+$depositFlag = $_POST['depositFlag'];
+$merorderNum = $_POST['merorderNum'];
+$backUrl = $_POST['$backUrl'];
+$description = $_POST['description'];
+$md = $_POST['md'];
+
+$mipsUrl = $_POST['mipsUrl'];
+
+// TODO: tady bych mel poslat order do mipsu.
+
 
 /* Gather submitted payment card details */
 //$cardType     = $_POST['cardType'];
